@@ -8,7 +8,7 @@ from core.const import WIN_WIDTH, COLOR_ORANGE, MENU_OPTION, COLOR_WHITE, COLOR_
 class Menu:
     def __init__(self, window):
         self.window: Surface = window
-        self.surf = pygame.image.load("asset/menuBG.png")
+        self.surf = pygame.image.load("asset/menuBG.png").convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self):
@@ -29,7 +29,7 @@ class Menu:
                     print("Ending Game")
                     pygame.quit()
                     quit()
-                if event.type ==pygame.KEYDOWN:
+                if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN:
                         if menu_option < len(MENU_OPTION) -1:
                             menu_option += 1
